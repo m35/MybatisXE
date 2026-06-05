@@ -7,7 +7,7 @@ import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.Nullable;
 
 public class Notifier {
-    private static final String GENERATE_CODE = "MybatisX Notification";
+    private static final String GENERATE_CODE = "MybatisXE Notification";
     private static final NotificationGroup NOTIFICATION_GROUP =
         new NotificationGroup(GENERATE_CODE, NotificationDisplayType.BALLOON, true);
 

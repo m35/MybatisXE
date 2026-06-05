@@ -1,10 +1,10 @@
-<idea-plugin url="https://gitee.com/baomidou/mybatis-plus" require-restart="false" allow-bundled-update="true">
-    <id>com.baomidou.plugin.idea.mybatisx</id>
-    <name>MyBatisX</name>
-    <vendor email="jobob@qq.com" url="https://gitee.com/baomidou/MybatisX">MybatisX</vendor>
+<idea-plugin url="https://github.com/m35/MybatisXE" require-restart="false" allow-bundled-update="true">
+    <id>com.baomidou.plugin.idea.mybatisxe</id>
+    <name>MyBatisXE</name>
+    <vendor email="" url="https://github.com/m35/MybatisXE">MybatisXE</vendor>
 
     <description><![CDATA[
-          MybatisX plugin
+          MybatisXE plugin
           Features:
        <ul>
           <li>mapper and xml can jump back and forth</li>
@@ -13,7 +13,6 @@
           <li>integrate mybatis generator Gui (copy from free mybatis plugin)</li>
       </ul>
 
-      wechat: wx153666 join the group of mybatisx
       ]]>
     </description>
 
@@ -162,7 +161,7 @@
         <!-- mapper.xml文件 <if test> <when test> 区域的引用跳转 -->
         <psi.referenceContributor id="testParamReferenceContributor"
                                   implementation="com.baomidou.plugin.idea.mybatisx.reference.TestParamReferenceContributor"/>
-        
+
         <!-- mapper.xml文件 <if test> OGNL 高亮 -->
         <annotator language="XML" implementationClass="com.baomidou.plugin.idea.mybatisx.system.annotator.TestParamOGNLAnnotator"/>
         <!-- mapper.xml文件 <if test> <foreach collection> 校验 -->

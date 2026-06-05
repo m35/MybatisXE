@@ -32,7 +32,7 @@ public class GenerateStatementIntention extends GenericIntention {
     @NotNull
     @Override
     public String getText() {
-        return "[MybatisX] Generate new statement";
+        return "[MybatisXE] Generate new statement";
     }
 
 

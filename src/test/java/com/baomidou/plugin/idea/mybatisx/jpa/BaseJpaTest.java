@@ -26,7 +26,7 @@ import java.util.Optional;
 public abstract class BaseJpaTest extends JavaCodeInsightFixtureTestCase {
 
 
-    public static final String MYBATIS_X_GENERATE_MYBATIS_SQL = "[MybatisX] Generate Mybatis Sql";
+    public static final String MYBATIS_X_GENERATE_MYBATIS_SQL = "[MybatisXE] Generate Mybatis Sql";
 
     @Override
     protected String getTestDataPath() {

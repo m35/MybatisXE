@@ -247,7 +247,7 @@ public class GenerateSmartJpaAdvanceAction extends PsiElementBaseIntentionAction
     @NotNull
     @Override
     public String getText() {
-        return "[MybatisX] Generate Mybatis Sql for Advance";
+        return "[MybatisXE] Generate Mybatis Sql for Advance";
     }
 
     @NotNull
