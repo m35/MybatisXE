@@ -22,7 +22,7 @@ intellijPlatform{
 
 repositories {
     mavenLocal()
-    maven { url=uri("https://maven.aliyun.com/repository/public/") }
+    //maven { url=uri("https://maven.aliyun.com/repository/public/") }
     mavenCentral()
     intellijPlatform {
         defaultRepositories()
@@ -30,9 +30,9 @@ repositories {
     }
     maven { url=uri("https://plugins.gradle.org/m2/") }
     maven { url=uri("https://oss.sonatype.org/content/repositories/releases/") }
-    maven { url=uri("https://dl.bintray.com/jetbrains/intellij-plugin-service") }
-    maven { url=uri("https://dl.bintray.com/jetbrains/intellij-third-party-dependencies/") }
-    maven("https://maven.aliyun.com/repository/gradle-plugin")
+    //maven { url=uri("https://dl.bintray.com/jetbrains/intellij-plugin-service") }
+    //maven { url=uri("https://dl.bintray.com/jetbrains/intellij-third-party-dependencies/") }
+    //maven("https://maven.aliyun.com/repository/gradle-plugin")
     maven {url=uri("https://oss.sonatype.org/content/repositories/snapshots/")}
     gradlePluginPortal()
 }
