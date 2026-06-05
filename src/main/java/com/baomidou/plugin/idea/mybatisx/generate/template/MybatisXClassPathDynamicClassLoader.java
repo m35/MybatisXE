@@ -1,6 +1,7 @@
 package com.baomidou.plugin.idea.mybatisx.generate.template;
 
 import com.baomidou.plugin.idea.mybatisx.util.ClassCreator;
+import com.intellij.openapi.ui.Messages;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiField;
 import com.intellij.psi.PsiModifier;
@@ -29,6 +30,7 @@ public class MybatisXClassPathDynamicClassLoader extends ClassLoader {
                 .filter(field -> !field.hasModifierProperty(PsiModifier.STATIC))
                 .map(PsiField::getName).collect(Collectors.toSet());
             String javaSourceCode = classCreator.defineClass(allowedFields, psiClass, psiClass.getName());
+            Messages.showInfoMessage(javaSourceCode, "Code Generation");
 
             try {
                 JavaStringCompiler compiler = new JavaStringCompiler();
