@@ -284,7 +284,7 @@ public class GenerateCode {
         return moduleUIInfo;
     }
 
-    private static void addPlugin(Context context, Serializable serializable) {
+    private static void addPlugin(Context context, CustomTemplateRoot serializable) {
         PluginConfiguration serviceJavaPluginConfiguration = new PluginConfiguration();
         serviceJavaPluginConfiguration.setConfigurationType(CustomTemplatePlugin.class.getName());
         // 模板的内容
@@ -292,10 +292,10 @@ public class GenerateCode {
         context.addPluginConfiguration(serviceJavaPluginConfiguration);
     }
 
-    private static void addRootMapToConfig(Serializable serializable, PluginConfiguration customPluginConfiguration) {
+    private static void addRootMapToConfig(CustomTemplateRoot serializable, PluginConfiguration customPluginConfiguration) {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(out)) {
-            objectOutputStream.writeObject(serializable);
+            objectOutputStream.writeObject(serializable); // Java serialization
         } catch (IOException e) {
             logger.error("序列化数据失败", e);
             throw new RuntimeException("序列化数据失败");
