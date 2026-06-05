@@ -156,7 +156,7 @@ public class SpringBootPackageResolver extends PackageAliasResolver {
     private void readClassesFromYaml(Set<String> classSet, String fileName, String content) {
         Yaml yaml = new Yaml();
         try {
-            Iterable<Object> objects = yaml.loadAll(content);
+            Iterable<Object> objects = yaml.loadAll(content); // yaml deserialization
             for (Object object : objects) {
                 Object config = findConfig(object);
                 Object typeAliasesPackage = findAliasPackage(config);
