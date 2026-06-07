@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.ObjectInputFilter;
 import java.io.ObjectInputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
@@ -67,10 +68,14 @@ public class CustomTemplatePlugin extends PluginAdapter {
     @Nullable
     private CustomTemplateRoot readRootObject(String root) {
         CustomTemplateRoot rootObject = null;
+        ObjectInputFilter filter = ObjectInputFilter.Config.createFilter(
+            "com.baomidou.plugin.idea.mybatisx.generate.dto.CustomTemplateRoot"
+        );
         try {
             byte[] decode = Base64.getDecoder().decode(root.getBytes(StandardCharsets.UTF_8));
             try (ObjectInputStream objectInputStream = new ObjectInputStream(new ByteArrayInputStream(decode))) {
-                rootObject = (CustomTemplateRoot) objectInputStream.readObject();
+                objectInputStream.setObjectInputFilter(filter);
+                rootObject = (CustomTemplateRoot) objectInputStream.readObject(); // Java deserialization
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class CustomTemplateRoot implements Serializable {
+public final class CustomTemplateRoot implements Serializable {
 
     /**
      * 模板路径
