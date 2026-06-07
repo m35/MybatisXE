@@ -100,6 +100,6 @@ tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
 }
 
-tasks.named("buildSearchableOptions").configure {
-    enabled = false
-}
+//tasks.named("buildSearchableOptions").configure {
+//    enabled = false
+//}
