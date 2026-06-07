@@ -25,7 +25,7 @@ public class GenerateSmartJpaAction extends GenerateSmartJpaAdvanceAction {
     @NotNull
     @Override
     public String getText() {
-        return "[MybatisX] Generate Mybatis Sql";
+        return "[MybatisXE] Generate Mybatis Sql";
     }
 
 

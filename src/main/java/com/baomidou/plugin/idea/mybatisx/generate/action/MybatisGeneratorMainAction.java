@@ -33,7 +33,7 @@ import java.util.stream.Stream;
  */
 public class MybatisGeneratorMainAction extends AnAction {
 
-    public static final String TITLE = "MybatisX Generate";
+    public static final String TITLE = "MybatisXE Generate";
     private static final Logger logger = LoggerFactory.getLogger(MybatisGeneratorMainAction.class);
 
     /**

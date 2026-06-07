@@ -21,7 +21,7 @@ public class MybatisTemplateGeneratorConfigurable extends ConfigurableBase<Mybat
 
 
     protected MybatisTemplateGeneratorConfigurable(Project project) {
-        super("mybatisx.template", "MybatisX Template", "mybatisx.template");
+        super("mybatisx.template", "MybatisXE Template", "mybatisx.template");
         this.project = project;
     }
 
