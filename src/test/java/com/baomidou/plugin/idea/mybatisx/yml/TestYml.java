@@ -53,7 +53,7 @@ public class TestYml extends TestCase {
         try (InputStream resourceAsStream = TestYml.class.getResourceAsStream("/yml/application-mybaits-plus3.yml")) {
             content = IOUtils.toString(resourceAsStream, "UTF-8");
             Yaml yaml = new Yaml();
-            final Iterable<Object> objects = yaml.loadAll(content);
+            final Iterable<Object> objects = yaml.loadAll(content); // yaml deserialization
 
             for (Object object : objects) {
                 System.out.println(object);
@@ -68,7 +68,7 @@ public class TestYml extends TestCase {
     private void extractedReplaced(String content) throws IOException {
         Yaml yaml = new Yaml();
 
-        final Iterable<Object> objects = yaml.loadAll(content);
+        final Iterable<Object> objects = yaml.loadAll(content); // yaml deserialization
 
         for (Object object : objects) {
             System.out.println(object);
