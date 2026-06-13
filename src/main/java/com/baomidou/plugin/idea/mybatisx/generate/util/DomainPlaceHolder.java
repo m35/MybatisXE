@@ -47,7 +47,7 @@ public class DomainPlaceHolder {
             templateName.process(map, writer);
             return writer.toString();
         } catch (Exception e) {
-            logger.error("动态参数替换错误", e);
+            logger.error("Dynamic parameter replacement error", e);
             return templateText;
         }
     }

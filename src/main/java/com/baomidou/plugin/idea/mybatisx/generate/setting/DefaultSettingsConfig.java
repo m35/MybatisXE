@@ -54,7 +54,7 @@ public class DefaultSettingsConfig {
                 // 模板配置的元数据信息
                 File metaFile = new File(file, ".meta.xml");
                 if (!metaFile.exists()) {
-                    logger.error("元数据文件不存在,无法加载配置.  元数据信息: {}", metaFile.getAbsolutePath());
+                    logger.error("Metadata file does not exist; unable to load configuration. Metadata information: {}", metaFile.getAbsolutePath());
                     continue;
                 }
                 Map<String, TemplateSettingDTO> defaultTemplateSettingMapping = null;
@@ -62,7 +62,7 @@ public class DefaultSettingsConfig {
                 try (FileInputStream metaInputStream = new FileInputStream(metaFile)) {
                     defaultTemplateSettingMapping = XmlUtils.loadTemplatesByFile(metaInputStream);
                 } catch (IOException e) {
-                    logger.error("加载配置出错", e);
+                    logger.error("Error loading configuration", e);
                     continue;
                 }
 
@@ -76,7 +76,7 @@ public class DefaultSettingsConfig {
                 }
             }
         } catch (IOException e) {
-            logger.error("加载配置出错", e);
+            logger.error("Error loading configuration", e);
         }
         return map;
     }

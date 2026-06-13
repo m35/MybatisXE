@@ -188,7 +188,7 @@ public class MybatisXTemplateSettings {
                 return;
             }
             if (oldLeadSelectionPath.getPathCount() != 3) {
-                logger.info("路径错误, 无法映射正确的配置");
+                logger.info("Path error; unable to map the correct configuration.");
                 return;
             }
             final String templatesName = oldLeadSelectionPath.getParentPath().getLastPathComponent().toString();
@@ -199,7 +199,7 @@ public class MybatisXTemplateSettings {
             ConfigSetting configSetting = templateSettingMap.get(templatesName);
             if (configSetting == null) {
                 // 没有找到配置
-                logger.info("没有找到配置,templatesName: {}", templatesName);
+                logger.info("Configuration not found, templatesName: {}", templatesName);
                 return;
             }
             for (TemplateSettingDTO templateSettingDTO : configSetting.getTemplateSettingDTOList()) {

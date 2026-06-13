@@ -86,7 +86,7 @@ public abstract class JpaMappingResolver {
 
     protected Optional<String> getTableNameByJpa(PsiClass entityClass) {
         if (entityClass == null) {
-            throw new IllegalArgumentException("无法确认实体类, 请尝试重新打开Mapper");
+            throw new IllegalArgumentException("Unable to identify the entity class; please try reopening the Mapper.");
         }
         String tableName = null;
         PsiAnnotation annotation = entityClass.getAnnotation(JAVAX_PERSISTENCE_TABLE);

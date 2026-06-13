@@ -57,14 +57,14 @@ public class GenerateSmartJpaAdvanceAction extends PsiElementBaseIntentionAction
             }
             PsiClass mapperClass = PsiTreeUtil.getParentOfType(statementElement, PsiClass.class);
             if (mapperClass == null) {
-                logger.info("未找到mapper类");
+                logger.info("Mapper class not found.");
                 return;
             }
             EntityMappingResolverFactory entityMappingResolverFactory = new EntityMappingResolverFactory(project);
             EntityMappingHolder entityMappingHolder = entityMappingResolverFactory.searchEntity(mapperClass);
             PsiClass entityClass = entityMappingHolder.getEntityClass();
             if (entityClass == null) {
-                logger.info("未找到实体类");
+                logger.info("Entity class not found.");
                 return;
             }
 
@@ -82,7 +82,7 @@ public class GenerateSmartJpaAdvanceAction extends PsiElementBaseIntentionAction
             // 插入到编辑器
             TypeDescriptor returnDescriptor = platformGenerator.getReturn();
             if (returnDescriptor == null) {
-                logger.info("不支持的语法");
+                logger.info("Unsupported syntax");
                 return;
             }
             boolean isSelect = returnDescriptor.getImportList().size() != 0;
@@ -95,14 +95,14 @@ public class GenerateSmartJpaAdvanceAction extends PsiElementBaseIntentionAction
                 platformGenerator.getEntityClass(),
                 isSelect);
             if (!conditionFieldWrapperOptional.isPresent()) {
-                logger.info("没找到合适的条件包装器, mapperClass: {}", mapperClass.getName());
+                logger.info("No suitable condition wrapper found, mapperClass: {}", mapperClass.getName());
                 return;
             }
             generate(project, editor, statementElement, mapperClass, platformGenerator, parameterDescriptor, returnDescriptor, conditionFieldWrapperOptional);
         } catch (ProcessCanceledException e) {
             logger.info("cancel info", e);
         }catch (RuntimeException e){
-            logger.info("生成JPA语句失败", e);
+            logger.info("Failed to generate JPA statements.", e);
         }
     }
 

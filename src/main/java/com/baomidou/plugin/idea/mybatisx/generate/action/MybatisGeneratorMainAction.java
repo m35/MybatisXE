@@ -49,7 +49,7 @@ public class MybatisGeneratorMainAction extends AnAction {
         Project project = e.getProject();
         PsiElement[] tableElements = e.getData(LangDataKeys.PSI_ELEMENT_ARRAY);
         if (tableElements == null) {
-            logger.error("未选择表, 无法生成代码");
+            logger.error("No table selected; unable to generate code.");
             return;
         }
         ClassGenerateDialogWrapper classGenerateDialogWrapper = new ClassGenerateDialogWrapper(project);
@@ -93,10 +93,10 @@ public class MybatisGeneratorMainAction extends AnAction {
                 }
             }
             VirtualFileManager.getInstance().refreshWithoutFileWatcher(true);
-            logger.info("全部代码生成成功, 文件内容已更新. config: {}", generateConfig);
+            logger.info("All code generated successfully; file contents updated. config: {}", generateConfig);
             notify(project, generateConfig);
         } catch (Exception e) {
-            logger.error("生成代码出错", e);
+            logger.error("Error generating code", e);
         }
     }
 

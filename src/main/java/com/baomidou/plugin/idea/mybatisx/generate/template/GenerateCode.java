@@ -142,7 +142,7 @@ public class GenerateCode {
         context.setJavaTypeResolverConfiguration(javaTypeResolverConfiguration);
         final ConfigSetting configSetting = configSettingMap.get(generateConfig.getTemplatesName());
         if (configSetting == null) {
-            logger.error("未选择模板组名称, templatesName: {}", generateConfig.getTemplatesName());
+            logger.error("Template group name not selected, templatesName: {}", generateConfig.getTemplatesName());
             return;
         }
         DomainInfo domainInfo = buildDomainInfo(generateConfig, domainName);
@@ -279,7 +279,7 @@ public class GenerateCode {
         moduleUIInfo.setEncoding(DomainPlaceHolder.replace(moduleInfo.getEncoding(), domainInfo));
         // 校验文件模板必须存在
         if (moduleUIInfo.getConfigFileName() == null) {
-            throw new RuntimeException("模板文件为空, 无法生成代码. config: " + moduleUIInfo.getConfigName());
+            throw new RuntimeException("Template file is empty; unable to generate code. config: " + moduleUIInfo.getConfigName());
         }
         return moduleUIInfo;
     }
@@ -297,8 +297,8 @@ public class GenerateCode {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(out)) {
             objectOutputStream.writeObject(serializable); // Java serialization
         } catch (IOException e) {
-            logger.error("序列化数据失败", e);
-            throw new RuntimeException("序列化数据失败");
+            logger.error("Failed to serialize data.", e);
+            throw new RuntimeException("Failed to serialize data.");
         }
         byte[] encode = Base64.getEncoder().encode(out.toByteArray());
         customPluginConfiguration.addProperty(CustomTemplatePlugin.ROOT, new String(encode));

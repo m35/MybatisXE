@@ -156,7 +156,7 @@ public class OracleInsertBatchWithAll extends MysqlInsertBatch {
 
             final TxParameter collection = parameters.poll();
             if (collection == null) {
-                throw new GenerateException("oracle insertBatch 生成失败, 无法获取集合名称");
+                throw new GenerateException("Oracle insertBatch generation failed; unable to retrieve collection name.");
             }
 
             final String collectionName = collection.getName();

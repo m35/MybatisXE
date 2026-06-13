@@ -67,7 +67,7 @@ public class SmartJpaCompletionProvider {
         // 按照 mybatisplus3 > mybatisplus2 > resultMap 的顺序查找映射关系
         final Optional<AreaOperateManager> operateManagerOptional = getAreaOperateManager(mapperClass, parameters.getEditor());
         if (!operateManagerOptional.isPresent()) {
-            logger.info("不支持的区域操作管理器, prefix: {} ", prefix);
+            logger.info("Unsupported region operation manager, prefix: {} ", prefix);
             return;
         }
         AreaOperateManager areaOperateManager = operateManagerOptional.get();

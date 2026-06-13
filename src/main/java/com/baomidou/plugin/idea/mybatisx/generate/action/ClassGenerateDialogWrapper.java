@@ -96,7 +96,7 @@ public class ClassGenerateDialogWrapper extends DialogWrapper {
         final TemplateContext templateContext = templatesSettings.getTemplateConfigs();
         final Map<String, ConfigSetting> settingMap = templatesSettings.getTemplateSettingMap();
         if (settingMap.isEmpty()) {
-            throw new RuntimeException("无法获取模板");
+            throw new RuntimeException("Unable to retrieve the template.");
         }
         codeGenerateUI.fillData(project,
             generateConfig,
@@ -138,7 +138,7 @@ public class ClassGenerateDialogWrapper extends DialogWrapper {
 
         final Map<String, ConfigSetting> settingMap = templatesSettings.getTemplateSettingMap();
         if (settingMap.isEmpty()) {
-            throw new RuntimeException("无法获取模板");
+            throw new RuntimeException("Unable to retrieve the template.");
         }
 
         tablePreviewUI.fillData(project, tableElements, generateConfig);

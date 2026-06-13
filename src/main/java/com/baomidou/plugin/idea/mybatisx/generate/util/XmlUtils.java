@@ -30,7 +30,7 @@ public class XmlUtils {
             saxParser.parse(inputStream, dh);
             return dh.map;
         } catch (ParserConfigurationException | SAXException | IOException e) {
-            throw new IOException("读取配置文件出错", e);
+            throw new IOException("Error reading configuration file", e);
         }
     }
 

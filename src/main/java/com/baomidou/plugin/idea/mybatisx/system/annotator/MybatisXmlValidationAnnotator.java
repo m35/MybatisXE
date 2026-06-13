@@ -77,7 +77,7 @@ public class MybatisXmlValidationAnnotator implements Annotator {
 
         // 3. Check for missing operator (Word Space Word)
         if (hasMissingOperator(noStr)) {
-            holder.newAnnotation(HighlightSeverity.ERROR, "test里面必须是一个条件表达式")
+            holder.newAnnotation(HighlightSeverity.ERROR, "The content within `test` must be a conditional expression.")
                 .range(attributeValue)
                 .create();
             return;

@@ -76,15 +76,15 @@ public class FreeMakerFormatter implements JavaFormatter {
             map.putAll(rootObject.toMap());
             templateName.process(map, writer);
             final String templateContent = writer.toString();
-            logger.info("模板内容生成成功, pathname: {}", modulePath);
+            logger.info("Template content generated successfully, pathname: {}", modulePath);
             return templateContent;
         } catch (IOException | TemplateException e) {
             StringWriter out = new StringWriter();
             try (PrintWriter stringWriter = new PrintWriter(out)) {
                 e.printStackTrace(stringWriter);
             }
-            logger.error("模板内容生成失败", e);
-            return "填充模板出错," + out;
+            logger.error("Failed to generate template content.", e);
+            return "Error filling template," + out;
         }
     }
 

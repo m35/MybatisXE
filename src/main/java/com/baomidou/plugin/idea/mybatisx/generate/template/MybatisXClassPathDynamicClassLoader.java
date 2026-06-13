@@ -37,7 +37,7 @@ public class MybatisXClassPathDynamicClassLoader extends ClassLoader {
                 Map<String, byte[]> results = compiler.compile(psiClass.getName() + ".java", javaSourceCode);
                 return compiler.loadClass(psiClass.getQualifiedName(), results);
             } catch (IOException e) {
-                throw new ClassNotFoundException("无法创建类", e);
+                throw new ClassNotFoundException("Unable to create class " + psiClass.getName(), e);
             }
         }
         return super.findClass(name);

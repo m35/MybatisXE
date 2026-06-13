@@ -128,7 +128,7 @@ public class CompositeAppender implements SyntaxAppender {
             return lastAppender.getTemplateText(tableName, entityClass, parameters, collector, conditionFieldWrapper);
 
         }
-        logger.info("组合字段操作: {}", appenderList.size());
+        logger.info("Composite field operation: {}", appenderList.size());
         StringBuilder stringBuilder = new StringBuilder();
         for (SyntaxAppender appender : appenderList) {
             String templateText = appender.getTemplateText(tableName, entityClass, parameters, collector, conditionFieldWrapper);

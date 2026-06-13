@@ -197,7 +197,7 @@ public class CustomSuffixAppender implements SyntaxAppender {
                                   LinkedList<SyntaxAppenderWrapper> collector,
                                   ConditionFieldWrapper conditionFieldWrapper) {
         if (collector.size() == 0) {
-            logger.info("这个后缀没有参数, suffix: {}", this.getText());
+            logger.info("This suffix has no parameters; suffix: {}", this.getText());
         }
 
         StringBuilder stringBuilder = new StringBuilder();

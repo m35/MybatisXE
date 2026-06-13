@@ -165,7 +165,7 @@ public class CodeGenerateUI {
                                String defaultsTemplatesName,
                                Map<String, ConfigSetting> templateSettingMap) {
         if (templateSettingMap.keySet().isEmpty()) {
-            throw new RuntimeException("模板列表为空, 请加入模板");
+            throw new RuntimeException("The template list is empty; please add a template.");
         }
         // 使用上一次生成代码的模板名称
         this.selectedTemplateName = determineTemplateName(templateSettingMap, generateConfig.getTemplatesName());
@@ -186,7 +186,7 @@ public class CodeGenerateUI {
             radioButton.addItemListener(itemListener);
         }
         if(StringUtils.isEmpty(selectedTemplateName)){
-            log.info("默认选中模板为空");
+            log.info("The default selected template is empty.");
             return;
         }
         ConfigSetting configSetting = templateSettingMap.get(selectedTemplateName);

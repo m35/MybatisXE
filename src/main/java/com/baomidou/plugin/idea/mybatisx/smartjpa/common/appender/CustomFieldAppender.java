@@ -134,7 +134,7 @@ public class CustomFieldAppender implements SyntaxAppender {
         text = StringUtils.lowerCaseFirstChar(text);
         PsiField psiField = fieldMap.get(text);
         if (psiField == null) {
-            logger.info("查找映射字段失败, text: {}", text);
+            logger.info("Failed to find mapping field, text: {}", text);
             return Collections.emptyList();
         }
         return Collections.singletonList(TxParameter.createByPsiField(psiField, areaSequence));

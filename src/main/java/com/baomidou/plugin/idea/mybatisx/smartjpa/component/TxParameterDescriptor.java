@@ -37,8 +37,8 @@ public class TxParameterDescriptor implements TypeDescriptor {
         this.parameterList = parameterList;
         fieldColumnNameMapping = mappingField.stream().collect(Collectors.toMap(TxField::getFieldName, x -> x, (a, b) -> {
             if (!a.getFieldType().equals(b.getFieldType())) {
-                final String format = MessageFormat.format("冲突字段:  {0}#{1} <===> {2}#{3}", a.getClassName(), a.getFieldName(), b.getClassName(), b.getFieldName());
-                throw new JpaGenerateException("字段类型不匹配, 无法生成SQL. \n" + format);
+                final String format = MessageFormat.format("Conflicting fields:  {0}#{1} <===> {2}#{3}", a.getClassName(), a.getFieldName(), b.getClassName(), b.getFieldName());
+                throw new JpaGenerateException("Field type mismatch; unable to generate SQL. \n" + format);
             }
             return a;
         }));

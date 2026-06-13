@@ -161,7 +161,7 @@ public abstract class AbstractStatementGenerator {
             JBPopupFactory.getInstance().createListPopup(step).showInFocusCenter();
         }
         } catch (RuntimeException e) {
-            logger.error("生成xml文件声明失败",e);
+            logger.error("Failed to generate the XML file declaration.",e);
         }
     }
 

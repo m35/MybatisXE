@@ -93,7 +93,7 @@ public class MapperMethodCompletionContributor extends CompletionContributor {
             }
         }
         if (!checkPosition(parameters)) {
-            logger.info("JPA 提示位置错误, 无法提示");
+            logger.info("JPA code completion is not working (incorrect location).");
             return;
         }
 
@@ -103,11 +103,16 @@ public class MapperMethodCompletionContributor extends CompletionContributor {
             SmartJpaCompletionProvider smartJpaCompletionProvider = new SmartJpaCompletionProvider();
             smartJpaCompletionProvider.addCompletion(parameters, result, mapperClass);
         } catch (ProcessCanceledException e) {
-            logger.info("未知的取消原因", e);
+            // IntelliJ has explicit instructions for this exception:
+            // "ProcessCanceledException and its inheritors must not be caught,
+            // swallowed, logged, or handled in any way. Instead, it must be rethrown
+            // so that the IntelliJ Platform infrastructure can handle it correctly."
+            logger.info("Unknown cancellation reason", e); // Logging anyway
+            throw e;
         } catch (PsiInvalidElementAccessException e) {
-            logger.info("无法访问节点", e);
+            logger.info("Unable to access the node.", e);
         } catch (Throwable e) {
-            logger.error("自动提示异常", e);
+            logger.error("Automatic anomaly notification", e);
         }
 
         logger.info("MapperMethodCompletionContributor.fillCompletionVariants end");
@@ -129,7 +134,7 @@ public class MapperMethodCompletionContributor extends CompletionContributor {
         if (firstMapper.isPresent()) {
             return Optional.of(mapperClass);
         }
-        logger.info("当前类不是mapper接口, 不提示. class: " + mapperClass.getQualifiedName());
+        logger.info("The current class is not a mapper interface; no suggestion will be shown. Class: " + mapperClass.getQualifiedName());
         Optional<PsiClass> psiMapper = getMapperIfHasAnnotation(mapperClass);
         if (psiMapper.isPresent()) {
             return psiMapper;
@@ -167,7 +172,7 @@ public class MapperMethodCompletionContributor extends CompletionContributor {
 
     private boolean checkPosition(CompletionParameters parameters) {
         if (parameters.getCompletionType() != CompletionType.BASIC) {
-            logger.info("类型不是 BASIC");
+            logger.info("The type is not BASIC.");
             return false;
         }
 
@@ -176,17 +181,17 @@ public class MapperMethodCompletionContributor extends CompletionContributor {
 
         PsiMethod currentMethod = PsiTreeUtil.getParentOfType(originalPosition, PsiMethod.class);
         if (currentMethod != null) {
-            logger.info("当前位置在方法体内部, 不提示");
+            logger.info("Currently located inside the method body; no suggestions are displayed.");
             return false;
         }
 
         PsiClass mapperClass = PsiTreeUtil.getParentOfType(originalPosition, PsiClass.class);
         if (mapperClass == null || !mapperClass.isInterface()) {
-            logger.info("当前类不是接口, 不提示");
+            logger.info("The current class is not an interface; no suggestion is displayed.");
             return false;
         }
         if (inCommentOrLiteral(parameters)) {
-            logger.info("注释区间不提示");
+            logger.info("No prompts in comment ranges");
             return false;
         }
         return true;

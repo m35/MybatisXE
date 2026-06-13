@@ -41,7 +41,7 @@ public class CustomTemplatePlugin extends PluginAdapter {
 
         ModuleInfoGo moduleUIInfo = Objects.requireNonNull(rootObject).getModuleUIInfo();
         if (moduleUIInfo.getEnable()==null|| !moduleUIInfo.getEnable()) {
-            logger.info("模板文件未启用, modulePath: {}", moduleUIInfo.getModulePath());
+            logger.info("Template file not enabled, modulePath: {}", moduleUIInfo.getModulePath());
             return Collections.emptyList();
 
         }
@@ -49,7 +49,7 @@ public class CustomTemplatePlugin extends PluginAdapter {
         final File file = new File(modulePath);
         if (!file.exists()) {
             final boolean created = file.mkdirs();
-            logger.info("模块目录不存在,已创建目录. modulePath: {},created:{}", file.getAbsolutePath(), created);
+            logger.info("Module directory does not exist; directory created. modulePath: {}, created: {}", file.getAbsolutePath(), created);
         }
         TopLevelClass topLevelClass = new TopLevelClass(moduleUIInfo.getFileName());
         FreeMakerFormatter javaFormatter = new FreeMakerFormatter(rootObject, ClassInfo.build(introspectedTable));
@@ -61,7 +61,7 @@ public class CustomTemplatePlugin extends PluginAdapter {
             moduleUIInfo.getEncoding(),
             moduleUIInfo.getFileNameWithSuffix(),
             moduleUIInfo.getPackageName());
-        logger.info("模板文件构建完成, modulePath: {}", modulePath);
+        logger.info("Template file generation complete, modulePath: {}", modulePath);
         return Collections.singletonList(generatedJavaFile);
     }
 

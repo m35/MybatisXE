@@ -62,7 +62,7 @@ public class InnerAliasResolver extends AliasResolver {
             AliasDesc aliasDesc = AliasDesc.create(psiClass, alias);
             aliasDescs.add(aliasDesc);
         } else {
-            logger.error("无法找到别名映射, class: {}, alias: {}", clazz, alias);
+            logger.error("Alias mapping not found, class: {}, alias: {}", clazz, alias);
         }
 
     }
