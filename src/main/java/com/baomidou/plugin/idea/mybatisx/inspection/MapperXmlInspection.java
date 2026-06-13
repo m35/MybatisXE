@@ -35,7 +35,7 @@ public class MapperXmlInspection extends BasicDomElementsInspection<DomElement> 
         try {
             super.checkDomElement(element, holder, helper);
         } catch (Exception e) {
-            logger.error("checkDomElement error:{}", e.getMessage());
+            logger.error("checkDomElement error:", e);
         }
     }
 
