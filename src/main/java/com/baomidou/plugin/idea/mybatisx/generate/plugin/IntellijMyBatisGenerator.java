@@ -25,6 +25,8 @@ import org.mybatis.generator.internal.XmlFileMergerJaxp;
 import org.mybatis.generator.internal.util.ClassloaderUtility;
 import org.mybatis.generator.internal.util.StringUtility;
 import org.mybatis.generator.internal.util.messages.Messages;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -40,6 +42,9 @@ import java.util.List;
 import java.util.Set;
 
 public class IntellijMyBatisGenerator {
+
+    private static final Logger logger = LoggerFactory.getLogger(IntellijMyBatisGenerator.class);
+
     private final Configuration configuration;
     private final ShellCallback shellCallback;
     @Getter
@@ -310,6 +315,7 @@ public class IntellijMyBatisGenerator {
     }
 
     private void writeFile(File file, String content, String fileEncoding) throws IOException {
+        logger.warn("Writing generated file to {}", file.getAbsolutePath()); // One of the few write operations in the plugin
         FileOutputStream fos = new FileOutputStream(file, false);
         OutputStreamWriter osw;
         if (fileEncoding == null) {
